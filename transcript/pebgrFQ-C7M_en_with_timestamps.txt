@@ -1,0 +1,746 @@
+YouTube Video ID: pebgrFQ-C7M
+Language: en
+With Timestamps: True
+Generated on: 2025-07-27 10:53:26
+--------------------------------------------------
+
+[0:00] You know, a few days ago I did an entire
+[0:02] piece on setting up digital twins. It
+[0:04] was very large. I think I wrote a
+[0:06] hundred some page guide for it. The
+[0:08] point is people took it and said, "This
+[0:10] looks really hard. You wrote all these
+[0:12] pages for it. Help me figure out how to
+[0:15] do it simply. I don't have an enterprise
+[0:17] setup. I'm not making robots learn to
+[0:19] walk in a warehouse. This is not a
+[0:21] Fortune 500 company. I want to use
+[0:24] digital twins without having to write
+[0:26] code." And I took that as a personal
+[0:29] challenge. And so what we are going to
+[0:31] work through today is an actual prompt
+[0:34] to set up your own digital twin
+[0:38] simulation. We have a couple of goals as
+[0:40] we work through this prompt. We want to
+[0:41] understand first how the prompt
+[0:43] functions. It's another one of those
+[0:45] system level prompts. So it actually
+[0:46] walks through an entire process or flow.
+[0:50] It creates a scenario and then it walks
+[0:53] you directly through it all in one
+[0:54] prompt. And we'll see how it works. The
+[0:56] second thing I want to do is I want to
+[0:58] show you some of how it works with
+[0:59] actual real conversations that I had
+[1:02] using that prompt and we'll walk through
+[1:04] them. You'll get both a salary
+[1:07] negotiation conversation because
+[1:08] sometimes they want to game those in
+[1:10] advance and you'll also get a classic
+[1:12] like product approval conversation to
+[1:14] give you a sense of office politics and
+[1:16] how it simulates office politics. It's
+[1:19] interesting to see how different models
+[1:22] affect this simulation. And for just one
+[1:25] more wrinkle, I'm going to give you a
+[1:27] sense of how chat GPT40
+[1:31] compares to chat GPT 03 handling this
+[1:34] prompt and running the simulation. This
+[1:36] is actually one of the clearest examples
+[1:38] I've seen of the practical realworld
+[1:42] differences between those two models. So
+[1:45] with that, let's get to the prompt.
+[1:47] Okay, here we have the digital twin
+[1:49] stakeholder prompt that I constructed. I
+[1:51] helpfully named it V2 because it took
+[1:54] multiple iterations to get this prompt
+[1:56] working and I want to walk through how
+[1:58] it functions. As before, I am running
+[2:00] this in the web browser comet with the
+[2:03] handy assistant pulled up. I had a few
+[2:05] questions when I did this last time. So,
+[2:06] just so you know, this is the Perplexity
+[2:09] web browser and that's an AI assistant
+[2:11] that Perplexity launches with the
+[2:13] browser. I find it useful. I did a write
+[2:15] up on it. Uh, and I find it really
+[2:16] helpful in situations like this where
+[2:18] I'm trying to understand what is going
+[2:20] on with a complicated page. So, as you
+[2:22] can see, the prompt as a whole is quite
+[2:24] large. I will just scroll to the end of
+[2:26] the prompt and you'll sort of start to
+[2:27] see, wow, there's a lot here. So, let's
+[2:29] get into it piece by piece. First, we
+[2:33] set the role. This is not surprising. I
+[2:35] think I've talked before about the idea
+[2:36] that you're setting the role as a way of
+[2:38] invoking a particular semantic space.
+[2:40] And next, you define the mission. In
+[2:42] this case, we have a four-part mission.
+[2:43] This is part of why you'll see better
+[2:46] performance out of 03 than 40 when we
+[2:48] get later into this video. Number one,
+[2:51] get the information out of me to figure
+[2:53] out what what is needed for a realistic
+[2:56] multistakeholder negotiation in my
+[2:58] situation because this is not a specific
+[3:00] prompt for compensation negotiation. It
+[3:03] is a super prompt that actually helps
+[3:05] you to set up whatever simulation you
+[3:07] want to run. Second, ask only one
+[3:09] question at a time. I find it so
+[3:11] overwhelming when LLM's ask too many
+[3:13] questions. So I I tend to include that.
+[3:15] Third, confirm the answer. And then
+[3:17] fourth, when the answers are gathered,
+[3:19] and now we get into the heart of it. You
+[3:21] need to generate a runnable simulation
+[3:24] prompt that embeds every confirmed
+[3:26] detail, contains inline data tables if
+[3:29] the user has not provided external
+[3:30] files, but you can, and includes clear
+[3:33] output rules, and a begin delimter. And
+[3:35] then five,
+[3:37] write the prompt out as plain text and
+[3:39] immediately transition into simulation
+[3:41] mode. One of this was actually one of
+[3:43] the reasons that I went to V2 is because
+[3:45] I found when I was playing with this
+[3:46] prompt and working with it, it is
+[3:48] difficult to get the AI to reliably go
+[3:51] from I'm learning about you and
+[3:53] gathering information to okay, we've got
+[3:57] the information. Now, it's time to
+[3:59] actually run the simulation and be a
+[4:01] digital twin. In this case, multiple
+[4:02] digital twins. So far so good. And
+[4:05] what's interesting is when you get to
+[4:08] the the end of the prompt, it
+[4:11] immediately invokes
+[4:14] it immediately invokes the twins. And so
+[4:17] we'll get down here and see what this
+[4:19] means. But I want you to see the
+[4:20] connection between five where we talk
+[4:22] about what we want the twins to be and
+[4:24] the end here where we talk about each
+[4:26] twin's opening statement. And that's the
+[4:27] way you begin. because this ties this
+[4:30] ties the tokens back when the LLM is
+[4:34] reading this prompt so that it knows
+[4:36] okay we have to remain in character
+[4:38] opening statements of every twin I see
+[4:40] that back here it's like we're doing
+[4:42] this memory management across a larger
+[4:44] prompt and this is a great example of
+[4:46] how that can work okay now the LLM at
+[4:49] this point would still not have all that
+[4:51] it needs to run so let's get to the
+[4:53] question script because we need
+[4:55] something that gets information out of
+[4:57] you one at a time. The obvious first
+[5:00] one, what situation are we negotiating?
+[5:02] List the participants. None of these are
+[5:04] super surprising. List the success
+[5:06] metrics or how you characterize a win.
+[5:08] What twin will you play? And by the way,
+[5:11] this works even if you don't want to
+[5:13] play a twin. So, if you just want to see
+[5:14] the LLM game it out and read the script,
+[5:17] you can say, "I won't play any of the
+[5:19] twins. You're playing them all." And it
+[5:20] will. How many turns before timeout? So,
+[5:23] this is framed as a multi-turn
+[5:24] conversation. And so you can say three,
+[5:26] you can say six, you can say whatever
+[5:27] number you want. Please provide key
+[5:29] numbers or attach a file for deals or
+[5:32] comp. Otherwise, give ballpark figures.
+[5:34] If you're salary negotiating, it's
+[5:36] obviously comp. But when I was doing it
+[5:38] for my uh product sample that I'll show
+[5:40] you in a moment, I ignored the comp part
+[5:42] and it said deal. So I put in like deal
+[5:44] data and like where our pipeline was at
+[5:46] and all of that. These are all madeup
+[5:47] numbers. Um, and I felt really free to
+[5:50] add the data I wanted. I will also call
+[5:53] out that this is a somewhat flexible
+[5:56] user response prompt. It is designed to
+[5:59] be a place where you can put a lot of
+[6:01] information and you'll see in one of the
+[6:03] sample chats how I'm able to pack in
+[6:06] like 300 words of information which is
+[6:08] really more than I designed the prompt
+[6:09] to take and the prompt is able to handle
+[6:11] that. Okay, constraints and policies
+[6:13] that's always important in any
+[6:15] negotiation and then your output
+[6:17] preferences, transcript style, word
+[6:19] limit, etc. So at that point uh I
+[6:22] actually define a confirmation phrase.
+[6:24] Now why do I define a confirmation
+[6:26] phrase? Why do I say after the user
+[6:29] answers each question, this is what you
+[6:31] should say? Well, number one, I define a
+[6:34] confirmation phrase because it is
+[6:37] critical to actually understand what the
+[6:40] user said to get this world building
+[6:42] right. With a lot of prompts, if you
+[6:44] write the prompt, you can do a second
+[6:45] turn and kind of figure it out if you're
+[6:47] trying to refine. But with a world
+[6:49] building or digital twin kind of prompt,
+[6:52] the world has to be right from the
+[6:54] get-go. And so I need to make sure that
+[6:56] it understands, right? And so I have it
+[6:59] come back and actively listen and
+[7:01] summarize on purpose. Okay, so it's
+[7:04] actively listened. It's collected all
+[7:05] the information. We now get to the
+[7:08] runnable prompt template. When all the
+[7:10] answers are confirmed, please fill the
+[7:12] placeholders and output you are the
+[7:14] digital twin negotiation arena host. So,
+[7:16] in a sense, you might be wondering, why
+[7:18] the heck is this here? Purpose, mode,
+[7:20] instructions, reference. Haven't we been
+[7:22] talking long enough? Why does this go
+[7:25] on, Nate? Well, I'll tell you why it
+[7:27] goes on. It goes on because we are
+[7:30] trying to bake in some degree of
+[7:33] consistency in this prompt and giving it
+[7:36] a purpose, a mode, an effort level,
+[7:39] which by the way, you can set
+[7:40] differently. Like I set it at high, but
+[7:42] if you want to change this prop before
+[7:44] running and set it at low, you can. Uh
+[7:46] you can also set the scenario and
+[7:50] hardcode it here if you want or it will
+[7:52] fill in the scenario for you based on
+[7:54] your answers. It will then output all
+[7:56] the rest of this based on your answers
+[7:58] and the reference. And as it does this,
+[8:00] it is literally encoding into the stream
+[8:03] of conversation everything it needs to
+[8:05] know to keep it going. This little piece
+[8:08] here does the important job of acting as
+[8:12] a conversational anchor. It acts as a
+[8:15] conversational anchor so that the rest
+[8:17] of the world building will work. Right?
+[8:19] If you have ever tried to do digital
+[8:21] twin stuff, you know that the
+[8:22] personality is drifting can be a
+[8:24] problem. This is part of how we control
+[8:26] for that. Having this clear reiteration
+[8:29] before we start. Finally, we begin
+[8:31] insert each twins opening statement
+[8:33] right after the delimiter. So that's the
+[8:35] prompt. That is what we will run. That
+[8:37] is what I will show you. Before we go
+[8:39] further, I want to actually go down. I
+[8:42] actually broke this out into principles
+[8:43] that we can look at. Uh, and I also
+[8:46] broke out takeaways. And so I want to
+[8:48] spend a second
+[8:50] looking at the takeaways and the
+[8:51] principles and make sure you understand
+[8:53] why I did what I did before I go to the
+[8:56] actual examples. So principle number
+[8:57] one, identity lockin. I want to make
+[8:59] sure that it's a digital twin and I want
+[9:01] to make sure I invoke that corner of
+[9:02] latent space. It is a deterministic
+[9:05] state machine which is a fancy way of
+[9:07] saying I am deliberately creating a
+[9:09] fixed numbered question script to gather
+[9:12] input on a path. This turns an
+[9:14] open-ended chat into something that is
+[9:16] very repeatable and something where the
+[9:19] uh process can be deliberately shifted
+[9:22] for ease of use in learning about
+[9:24] different future timelines. So, if you
+[9:26] want to game out a timeline where you
+[9:29] open with 210 for your comp or a
+[9:31] timeline where you open with 180 or a
+[9:33] timeline where you open with 150, you
+[9:35] can do all of those things in separate
+[9:38] chats and you get a really tight
+[9:40] controlled uh simulation of how that
+[9:43] conversation might unfold. Similarly, if
+[9:46] you're doing a job interview, which you
+[9:48] could use for this, you can game out in
+[9:50] multiple different chats, what if I
+[9:53] answered this way? and you can watch
+[9:55] your other stakeholders respond and
+[9:57] actually like game that through and
+[9:59] think that through more easily. Humans
+[10:01] are not great at simulating entire
+[10:03] digital scenarios in our head with
+[10:05] multiple stakeholders at high fidelity.
+[10:08] That is what this prompt is designed to
+[10:09] do. Progressive disclosure. We talked
+[10:12] about asking one question at a time.
+[10:14] Echo confirmation loop. Rephrase.
+[10:16] Actively listen. Actively listen might
+[10:18] have been a better way to put this.
+[10:20] Explicit output contract. This is the
+[10:23] contract that we described up here that
+[10:26] sets the terms of the debate. It says
+[10:29] here's your purpose, here's your mode,
+[10:31] here's your effort, here's your
+[10:32] instructions, here's your references,
+[10:34] and here's your output. It's really
+[10:36] important to be clear and explicit about
+[10:37] that when you're doing digital twin
+[10:39] work. Okay. And then we get to handoff
+[10:42] embed all the requisite data inside the
+[10:44] runnable block. This was one of the
+[10:47] challenges I had and this is why we
+[10:48] named this V2. It is hard to get all the
+[10:52] data inside a runnable block, collect
+[10:55] all of it, make it run inside the same
+[10:58] prompt. One of the keys to getting it to
+[11:00] do that is to be very very explicit
+[11:02] about that reiteration of the contract
+[11:04] and explicit in the questions about what
+[11:07] you are gathering. And so if you look
+[11:10] back here, we are being very explicit
+[11:12] about what we want in this question
+[11:15] setup here, these nine questions.
+[11:18] And we are specifying it needs to be
+[11:20] runnable and we are specifying it needs
+[11:22] to begin now. We are not giving the
+[11:24] model any choice. We are saying here's
+[11:26] all the information and you must begin
+[11:28] now. And that was very deliberate.
+[11:30] Context switching invokes the model's
+[11:32] opening moves very deliberately and we
+[11:34] define what we expect for the first move
+[11:36] which helps the model get into that
+[11:38] space. We say right up here, we need you
+[11:41] to make opening statements that because
+[11:43] you could begin a lot of different ways,
+[11:44] but we say opening statements because
+[11:47] that enables the model to enter the
+[11:49] simulation space in a predictable way.
+[11:52] If you leave that blank, you are giving
+[11:55] the model cart blanch to open any way it
+[11:58] wants. And you don't want that for a
+[12:00] predictable simulation builder. You
+[12:02] actually want a little bit of
+[12:03] predictability so you can start to
+[12:05] insert variables and learn. Okay. From
+[12:08] there we get into uh visual parsing and
+[12:11] bounded variables. So users can set
+[12:13] rounds, they can set word limits, users
+[12:15] can um actually see what is going on
+[12:17] easily because we're using those asy
+[12:19] gutters like the delimiters. I don't
+[12:21] want to say these are fantastic
+[12:22] principles. Like don't make me tell you
+[12:25] that begin now with special asy gutters
+[12:27] is somehow going to be more magical than
+[12:29] begin now. It's not. But it sure is
+[12:31] easier to read. And if we're reading
+[12:33] these large prompts like I've been
+[12:34] describing, it is sometimes nice to have
+[12:36] clean gutters and bulleted lists.
+[12:38] Finally, there are error rules for
+[12:42] failure modes. And part of the error
+[12:44] rules I've already called out to you.
+[12:45] Like if you go back up here, one of the
+[12:48] hidden error uh rules is the
+[12:51] confirmation phrase. If there is a
+[12:53] problem, you are going to see it because
+[12:55] it's going to come back and tell you
+[12:57] because the user answer paraphrase is
+[13:00] going to be correct. But there's other
+[13:02] ones too like do not ask further setup
+[13:05] questions after the honorable prompt is
+[13:06] admitted. We are scoping down so it
+[13:08] doesn't go forever. We are demanding
+[13:10] that it remain in character. We want to
+[13:12] ensure it retains the detail. We are
+[13:14] demanding that it only asks one question
+[13:16] at a time. We are giving it a lot of
+[13:17] constraints. Okay. Now I want to finish
+[13:20] by talking about the structure and
+[13:22] starting with the system ro declaration
+[13:25] is classic. Getting to the mission is
+[13:27] the correct overall next step. And by
+[13:29] the way, these are larger pro uh prompt
+[13:32] structures that you can use in other
+[13:34] prompts, not just for these super macro
+[13:36] prompts, right? If you start with, hey,
+[13:38] here's my system role to move you into
+[13:39] latent space. Here's the mission that I
+[13:41] have for you. Uh and then here's the
+[13:43] content that I want you to engage with.
+[13:45] In this case, it's the script. you're
+[13:47] going to be in a good spot for a lot of
+[13:49] different prompts. If you frame how you
+[13:52] want the response to work, which is the
+[13:53] confirmation phrase template in my case,
+[13:55] but could be something totally different
+[13:56] for a prompt of yours, it's going to be
+[13:59] really, really helpful. And finally, if
+[14:01] you specify a contract and how you
+[14:04] begin, if you're trying to do a super
+[14:05] prompt like this and you specify a
+[14:07] runnable prompt contract at the end and
+[14:09] you also specify how you want the model
+[14:12] to begin, it increases the odds that
+[14:14] your prompt is going to actually run
+[14:16] successfully. Okay, we are going to skip
+[14:19] the micro details that add delight.
+[14:20] We've talked about the asy. We've talked
+[14:22] about markdown. Aren't you glad I can
+[14:24] make things pretty? Uh we will talk
+[14:26] briefly about how these pieces reinforce
+[14:28] one another. The fixed question order
+[14:30] reinforces the deterministic state
+[14:32] machine. The builder never deviates from
+[14:34] the script and always gets the questions
+[14:36] the same way. And you can treat it like
+[14:38] an automaton in that regard. The only
+[14:40] difference is the power of the LLM
+[14:42] behind it, which is really interesting
+[14:45] because you'll see in the examples how
+[14:48] 03 versus 40 is different. If you are
+[14:51] teaching this, and I know some folks
+[14:53] that watch my videos teach my work to
+[14:55] others, and that's fantastic. You want
+[14:57] to remind people of the principle of
+[15:00] progressive disclosure and the
+[15:02] importance of template integrity. Be
+[15:03] careful with your placeholders. Be
+[15:05] careful with asking too much of the
+[15:08] model in one go without those checks and
+[15:10] balances that I showed you in the
+[15:12] prompt, without asking it to reiterate
+[15:13] the contract, without asking it to be
+[15:16] specific in its summary as it comes back
+[15:19] to you. We are giving the prompt the
+[15:22] token scaffolding it needs to be
+[15:24] successful. Finally, potential pitfalls.
+[15:27] You want to make sure that you are
+[15:30] giving it limits. And so that is one of
+[15:32] the things that we did not go as
+[15:35] explicit here that I find that the model
+[15:37] tends to get to in practice, as we'll
+[15:39] see. You want to not be
+[15:42] overcommitting the model to responses it
+[15:44] can't deliver. Another example that
+[15:46] would have strengthened this prompt more
+[15:47] that you might want to use if you add
+[15:49] more files is to summarize key numbers
+[15:52] in two to three lines to force the model
+[15:53] to answer back on files because you
+[15:56] don't want it to just skip over the file
+[15:58] content. So there are little things that
+[16:00] think of these is essentially tweaks you
+[16:02] can make depending on what you're
+[16:03] looking to accomplish. We've gone on
+[16:05] long enough. Let's move to digital twin
+[16:09] negotiation builder v2 using 03 and see
+[16:13] how the conversation went. Here we are.
+[16:16] I run the prompt just as you described.
+[16:18] The situation we're negotiating is a
+[16:21] product pitch LLM to SQL project. It
+[16:24] understands it. It comes back. Here's
+[16:25] who I'm pitching to. CEO, CTO, CFO,
+[16:28] director, me and the CRO
+[16:31] here. I I want approval to build the
+[16:33] product and launch. That's my goal. I
+[16:34] have been in these situations. I'm
+[16:35] picking something I know well so I can
+[16:37] assess the quality. Next question. Which
+[16:39] twin will you play? I'm going to play me
+[16:41] and be the director of product. Great.
+[16:43] How many turns before timeout? Let's do
+[16:45] three rounds cuz most CEOs don't
+[16:47] tolerate more than that. And then I
+[16:48] throw it a curveball. This was not
+[16:50] planned for in the prompt. I throw it
+[16:53] 300 words on my product and I say this
+[16:56] is what I pitched them. Right? It's all
+[16:58] about how amazing this imaginary product
+[17:00] is. I I am okay with the numbers being
+[17:02] made up because this is an example and
+[17:04] this is my ask Q3 roll out request. Got
+[17:07] it. Next question. Provide any key
+[17:09] numbers and I basically say I could have
+[17:12] said just stick with these numbers up
+[17:13] here but I want to think about the deals
+[17:15] in this case because I think that's
+[17:16] going to matter for the simulation. Most
+[17:19] most seuite conversations in a B2B SAS
+[17:22] have to do with deals at some level. I
+[17:24] say we're chasing million-dollar deals
+[17:25] with enterprise clients. We've had a
+[17:27] pipeline slowdown in the last 6 months.
+[17:29] Okay, great. The key data we're pursuing
+[17:31] is this. It reiterates. It asks me to
+[17:33] talk about the different characters. And
+[17:34] so this is me like you basically make up
+[17:37] the characters you want. If you don't
+[17:39] know, you have to infer and guess. I had
+[17:41] fun making these up. These are
+[17:43] fictional, but they're plausible, right?
+[17:45] The CTO is worried about hitting the
+[17:47] schedule. The director of engineering is
+[17:48] somewhat hostile because he thinks we're
+[17:49] we're missing on core product. The CFO,
+[17:52] she's worried about close rates and
+[17:53] pipeline. The CEO, he's a business guy.
+[17:56] He believes in enterprise and he loves
+[17:57] AI, but he doesn't know how it works.
+[17:59] Like these are all very plausible and I
+[18:01] need a promotion, right? Like because I
+[18:02] I' I've definitely been in that spot. So
+[18:04] there it is. And then it asks, "What are
+[18:07] the open legal or approval issues?"
+[18:09] Super simple. Uh there's an open legal
+[18:11] issue around LLM and data privacy.
+[18:13] There's also an open question around
+[18:14] pricing for usage, which is a huge issue
+[18:17] more broadly. Different video. It
+[18:18] reiterates and I say, "Please generate a
+[18:21] script style transcript. Set the limit
+[18:22] for debrief at 500 words. Leave room to
+[18:25] speak." Now it is going to reiterate the
+[18:27] contract. This is a contract. It writes,
+[18:29] it's all writing all of this and it
+[18:31] begins with opening statements. Begin
+[18:32] out round one now. And it does. So the
+[18:34] CEO sets the terms. The CTO says in line
+[18:38] with his character, it's viable, but I
+[18:40] worry. Enterprise pro prospects ask. You
+[18:42] get the idea. It's now my move. I
+[18:44] respond. I say, listen, we have to do
+[18:47] this because we are losing in the
+[18:48] market. A strong AI feature can add
+[18:50] sizzle, and if we combine it with uh the
+[18:52] CRO's concerns around SOCK 2, we should
+[18:54] unstick some deals. It then moves
+[18:55] forward. I'm not going to read all of
+[18:56] these in detail, don't worry. We get to
+[18:58] the second round, we see that it's
+[19:00] playing the roles correctly. I then
+[19:02] start to negotiate. I say, "Listen, we
+[19:05] shouldn't just look at new customers. We
+[19:06] should look at existing expansion
+[19:07] revenue. I'm starting to move forward.
+[19:10] This is third round. I've got to finish
+[19:11] up." The CRO basically says, "Okay, if
+[19:13] we're talking about expansion revenue,
+[19:15] maybe I can get on board." The CFO who's
+[19:17] been worried about the money says,
+[19:18] "Okay, that that unlocks that for me,
+[19:21] etc." And at the end, it gives me a
+[19:23] scorecard. It says, "I got a partial
+[19:25] approval." It gives itself a scorecard
+[19:27] for twin realism and it gives me a
+[19:30] debrief. What did it hinge on? Where did
+[19:32] the tension surface? How did it work? I
+[19:34] think this is the most useful part of
+[19:36] this whole exercise because if you want
+[19:37] to game out different scenarios like for
+[19:39] a job interview, you get debriefs on
+[19:41] your performance like this. I think it's
+[19:43] really cool. Next, let's actually go
+[19:45] into the job search arena and let's look
+[19:48] at a real example of compensation
+[19:52] negotiation, the final stage of job
+[19:54] search. Okay, we are back. I'm not going
+[19:57] to rerun this prompt in more detail. You
+[19:59] get the idea. We went through the
+[20:00] different situations. We're negotiating
+[20:02] compensation this time. Smaller group,
+[20:04] head of HR, CPO, and me. Uh, the win is
+[20:08] dollars. We want more of them. Uh, we
+[20:10] have six rounds. And I give it uh my
+[20:14] current offer. Uh, I'm totally making up
+[20:16] these numbers, but they're not
+[20:17] completely implausible.
+[20:19] And it says it's got it. I give it
+[20:22] personality. The CPO is a hard-bitten
+[20:24] guy. HR wants to follow policy. I
+[20:27] realize this sounds right out of central
+[20:28] casting, but we're having fun. Okay. And
+[20:30] I give it instructions. Again, all of
+[20:31] this is necessary to set up the fidelity
+[20:34] of the digital twins world. And so it
+[20:35] then starts to print out what it's going
+[20:37] to do. It prints out all of the stuff
+[20:40] it's working with, all the stuff it
+[20:42] knows so far. Begins round one. It gives
+[20:44] opening statements based on what I've
+[20:46] said, what the CPO said, what HR has
+[20:48] said, and then it asks me to go from
+[20:50] here. Essentially, they say no. And so I
+[20:52] say, "Hey, this reflects the market
+[20:54] average. Like, this is legit." And so
+[20:56] they start to shift a little bit. They
+[20:58] bring up finance and approvals as an
+[21:00] issue. Uh HR is really concerned about
+[21:03] it. It's my move. So I say, "Okay, I
+[21:06] want to play with equity and bonus a
+[21:08] little bit. What if I drop the comp
+[21:09] down?" This is actually how a lot of
+[21:12] comp negotiations go. But we don't get
+[21:14] the chance to play them out. The exact
+[21:16] reason we have digital twins is so that
+[21:19] we can do stuff like this in a
+[21:21] controlled environment because I could
+[21:22] simulate this whole thing again at a
+[21:24] different number and walk out with a
+[21:26] different sense of how the narrative
+[21:27] went. Okay, so director of product, CPO
+[21:29] and head of HR come back, they talk
+[21:31] through that we're getting closer. I
+[21:33] love that it's keeping a concession
+[21:35] ledger so we can actually see how it's
+[21:37] going. I wish that was true in real
+[21:38] life. This is one way that it's easier
+[21:40] in this uh in this simulated
+[21:42] environment.
+[21:44] uh we are arguing over the clause for
+[21:46] equity. I can live with a clause for
+[21:48] more equity that's dependent on period
+[21:50] of employment, I say, but I don't think
+[21:52] it's reasonable to make it dependent on
+[21:54] product revenue goals if the CPO's
+[21:56] equity is not similarly tied. And the
+[21:58] CPO dodges the question as real CPOS
+[22:01] tend to do and then moves on and says
+[22:03] fine, we won't we won't make that a
+[22:04] thing. We are now close to an agreement
+[22:06] as you can see from here.
+[22:09] And at the end of the day, the only
+[22:11] thing that's an issue is what if finance
+[22:13] pushes back? And I provide a savvy
+[22:16] approach in terms of how finance pushes
+[22:18] back. What do we do? How do we hand? And
+[22:20] so then they come back and they say,
+[22:21] "Okay, basically we've got a deal." I
+[22:23] say, "Let's get a deal done." It then
+[22:25] gives me a scorecard. It gives me comp.
+[22:27] It gives me uh a debrief on how it went
+[22:31] and it gives me like madeup next steps
+[22:34] for what I would do. I think this is the
+[22:36] most useful bit. It talks through how I
+[22:37] handled finance resist. It talks through
+[22:39] like the good the way I anchored on
+[22:41] local market data and insisted on par
+[22:43] with executive incentives was really
+[22:45] smart. Um it's just going to give you
+[22:47] feedback and you can you can ask it at
+[22:50] that point will give me more critical
+[22:51] feedback, right? Like push me harder and
+[22:53] it will do that. Last thing I want to
+[22:55] show you is what happens if we run this
+[22:59] exact same scenario token for token.
+[23:01] Same like same answers all the way
+[23:03] through but we used a different model.
+[23:05] So, we're going to go and use Chad
+[23:06] GPT40.
+[23:08] Okay, here we are. Chad GPT40 up here. I
+[23:11] am not going to rerun. These are all
+[23:13] exactly the same. Exactly the same. Set
+[23:15] it up exactly the same. Yep. Great. Go.
+[23:19] It then prints out
+[23:21] the entire contract and begins. What I
+[23:24] notice immediately with 40 is that 40
+[23:27] has more personality. Look at the way
+[23:29] the CPO talks.
+[23:30] I've been in this game a long time, and
+[23:32] I'll be straight with you. We think
+[23:33] you're the right person, but we're not
+[23:35] playing paying fantasy baseball
+[23:36] salaries. That is 40 language. That is
+[23:39] not 03 would never do that. So, the
+[23:41] personality difference pops out right
+[23:43] away. I come back as much as I can. I'm
+[23:45] using token for token the same thing.
+[23:47] So, we focus you on model differences.
+[23:50] Um, the CPO continues to have
+[23:52] personality. Head of HR continues to be
+[23:54] very bland. And moving forward, I say,
+[23:58] okay, I can, you know, negotiate. I can
+[24:00] adjust. Again, I'm keeping this exactly
+[24:02] the same as I did for the 03 example.
+[24:04] The CPO then begins to praise me, which
+[24:06] would not happen in real life and is one
+[24:08] of our first indications that the model
+[24:10] is not as smart as 03. This is a little
+[24:12] bit out of character for a CPO, but he
+[24:15] continues to be very, very chatty. I
+[24:17] then give the same response, and what's
+[24:18] interesting is I decided to give the
+[24:20] same response to keep the model as clean
+[24:22] as possible. But you'll notice that I
+[24:24] gave that response when we were talking
+[24:26] about clauses and 4 is not talking about
+[24:30] clauses here. So this is me literally
+[24:33] throwing a little bit of a curveball to
+[24:34] keep the exact same token stream for the
+[24:38] model to maintain the test as cleanly as
+[24:40] possible. Okay, CPO comes back. Head of
+[24:42] HR understands. And you know what's
+[24:45] interesting? This is where the model
+[24:46] really begins to diverge right here.
+[24:48] They just agree. That did not happen
+[24:51] with 03. One of my top takeaways looking
+[24:54] at this example is that 4 shows its
+[24:57] dumbness by being too agreeable in
+[25:00] digital twin scenarios. If you were
+[25:02] simulating this with 4, I worry you
+[25:05] would walk away with a false idea of how
+[25:08] tough these negotiations can be. I
+[25:10] thought 03 did a much better job
+[25:12] simulating how deep into the weed
+[25:14] sometimes comp negotiations can go. And
+[25:17] here I I just say I can get a deal done,
+[25:19] right? like they've basically given me
+[25:20] what I want. And if you walk out, you
+[25:22] can see that I got more cash. The offer
+[25:24] was at 190 and I walked out at 200
+[25:26] instead of 194. Essentially, you can
+[25:28] literally measure in dollars the
+[25:30] dumbness of the model. 40 gave me $6,000
+[25:33] that 03 was able to withhold for me
+[25:35] because it was a sharper negotiator,
+[25:37] which is actually better for you when
+[25:39] you're looking to simulate. So, with
+[25:41] that, there you go. We have three
+[25:44] different actual conversation examples.
+[25:46] We have a detailed breakdown of how to
+[25:47] build a digital twin in chat GPT. You
+[25:51] don't have to do anything. You don't
+[25:52] have to run any code. You understand the
+[25:54] principles behind that prompt. You
+[25:56] understand how it hangs together. You
+[25:58] understand how you could tweak it or
+[25:59] adjust it for other scenarios. And the
+[26:01] prompt itself is a super prompt, which
+[26:03] means that you can run that prompt and
+[26:06] give it other scenarios. Don't just do
+[26:08] compensation. Don't just do product
+[26:10] proposals. You can do it with sales
+[26:11] negotiations. You can do it with job
+[26:13] interviews. Anything that requires
+[26:16] multiple parties to discuss and agree,
+[26:18] you got options. You can run this prompt
+[26:21] to simulate it. This is what I mean
+[26:22] about the power of AI for digital twins.
+[26:25] It is a huge deal. Most of us are
+[26:27] sleeping on it. And I think part of it
+[26:29] is it's been tricky to know how to
+[26:30] prompt. And so this is my attempt to
+[26:32] like bring the bridge over so that you
+[26:34] can see like we're going to build the
+[26:35] bridge. You can see how the prompt works
+[26:37] and it's not a mystery anymore. Hope
+[26:39] that was helpful. Tips.

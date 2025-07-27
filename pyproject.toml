@@ -1,0 +1,23 @@
+[project]
+name = "mcp-youtube"
+version = "0.1.0"
+description = "MCP server for fetching YouTube transcripts"
+dependencies = [
+    "mcp>=1.12.2",
+    "pydantic>=2.10.2",
+    "youtube-transcript-api>=1.2.1",
+    "fastapi>=0.104.0",
+    "uvicorn>=0.24.0",
+    "gradio>=4.0.0",
+    "requests>=2.31.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[project.scripts]
+mcp-youtube = "src.mcp_youtube:main"
