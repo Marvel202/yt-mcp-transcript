@@ -334,8 +334,7 @@ def main():
         share=False,            # Set to True for public sharing
         show_api=False,         # Hide API docs link
         show_error=True,        # Show detailed errors
-        quiet=False,            # Show startup logs
-        watch_dirs=None         # Disable auto-reload to fix the demo attribute error
+        quiet=False             # Show startup logs
     )
 
 # Create a demo variable for Gradio's auto-reload feature

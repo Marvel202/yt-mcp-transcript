@@ -38,11 +38,15 @@ class TranscriptResponse(pydantic.BaseModel):
     with_timestamps: bool = False
 
 def extract_video_id(url: str) -> str:
-    """Extract video ID from various forms of YouTube URLs."""
+    """Extract video ID from various forms of YouTube URLs or return if already a video ID."""
+    # If it looks like a direct video ID (11 characters, alphanumeric), return it
+    if len(url) == 11 and url.replace('-', '').replace('_', '').isalnum():
+        return url
+    
     parsed = urlparse(url)
     if parsed.hostname in ('youtu.be', 'www.youtu.be'):
         return parsed.path[1:]
-    if parsed.hostname in ('youtube.com', 'www.youtube.com'):
+    if parsed.hostname in ('youtube.com', 'www.youtube.com', 'm.youtube.com'):
         if parsed.path == '/watch':
             return parse_qs(parsed.query)['v'][0]
         elif parsed.path.startswith('/v/'):
@@ -133,6 +137,7 @@ async def root():
         "message": "YouTube Transcript API",
         "version": "1.0.0",
         "endpoints": {
+            "GET /transcript/{video_id}": "Get transcript by video ID",
             "POST /transcript": "Get transcript for a YouTube video",
             "POST /transcript/save": "Get transcript and save to file",
             "GET /health": "Health check"
@@ -143,6 +148,38 @@ async def root():
 async def health_check():
     """Health check endpoint."""
     return {"status": "healthy", "timestamp": datetime.now().isoformat()}
+
+@app.get("/transcript/{video_id}")
+async def get_transcript_by_id(video_id: str, with_timestamps: bool = False, language: str = "en"):
+    """Get transcript by video ID directly via GET request."""
+    try:
+        transcript = get_transcript(video_id, with_timestamps, language)
+        
+        # Check if transcript extraction failed
+        if transcript.startswith("Error") or transcript.startswith("No transcript"):
+            return TranscriptResponse(
+                success=False,
+                error=transcript,
+                video_id=video_id,
+                language=language,
+                with_timestamps=with_timestamps
+            )
+        
+        return TranscriptResponse(
+            success=True,
+            video_id=video_id,
+            transcript=transcript,
+            language=language,
+            with_timestamps=with_timestamps
+        )
+    except Exception as e:
+        return TranscriptResponse(
+            success=False,
+            error=str(e),
+            video_id=video_id,
+            language=language,
+            with_timestamps=with_timestamps
+        )
 
 @app.post("/transcript", response_model=TranscriptResponse)
 async def get_transcript_api(request: TranscriptRequest):

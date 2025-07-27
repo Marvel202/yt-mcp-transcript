@@ -1,269 +1,232 @@
-# YouTube MCP Server
+# YouTube Transcript MCP Server
 
-A Model Context Protocol server that allows you to download subtitles from YouTube and connect them to a LLM. Also provides a FastAPI HTTP server for integration with external tools like n8n, and a user-friendly Gradio web interface.
+A comprehensive YouTube transcript extraction tool that provides three different interfaces:
+1. **Model Context Protocol (MCP) Server** - For AI assistants and tools
+2. **FastAPI HTTP Server** - For automation tools like n8n
+3. **Gradio Web Interface** - For easy browser-based access
 
 ## Features
 
-- Download transcripts from YouTube videos
-- Support for both video IDs and full YouTube URLs
-- Timestamps included in transcript
-- Save transcripts to text files
-- Works with any MCP-compatible client
-- **FastAPI HTTP server for external integrations**
-- **REST API endpoints for automation tools**
-- **Gradio web interface for easy access**
-- **Automatic file management and listing**
+- Extract transcripts from YouTube videos using video IDs or URLs
+- Support for multiple subtitle languages
+- Automatic file saving with timestamps
+- Multiple interface options for different use cases
+- Robust error handling and validation
 
-## Usage
+## Installation
 
-### Option 1: MCP Server Mode
+### Prerequisites
+- Python 3.8+
+- uv package manager (recommended) or pip
 
-#### In your MCP client configuration:
-
-```json
-"servers": {
-    "youtube": {
-		"type": "stdio",
-		"command": "uv",
-		"args": [
-			"run",
-			"--directory",
-			"/Users/ritakoon/Desktop/PlayList/yt-mcp-transcript",
-			"python", "src/mcp_youtube.py"]
-		},
-}
-```
-
-### Option 2: FastAPI HTTP Server Mode
-
-#### Start the FastAPI server:
-
+### Using uv (recommended)
 ```bash
-# Navigate to project directory
-cd /Users/ritakoon/Desktop/PlayList/yt-mcp-transcript
+# Clone the repository
+git clone https://github.com/Marvel202/yt-mcp-transcript.git
+cd yt-mcp-transcript
 
-# Start FastAPI server on port 8080 (default)
-uv run python src/mcp_youtube.py --mode fastapi --port 8080
-
-# Or specify custom host and port
-uv run python src/mcp_youtube.py --mode fastapi --host 0.0.0.0 --port 8080
-```
-
-The server will start with:
-- **Base URL**: `http://localhost:8080`
-- **API Documentation**: `http://localhost:8080/docs` (Swagger UI)
-- **Timeout settings**: 60 seconds for keep-alive and graceful shutdown
-
-#### API Endpoints:
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/` | Root endpoint with API information |
-| GET | `/health` | Health check endpoint |
-| POST | `/transcript` | Get transcript for a YouTube video |
-| POST | `/transcript/save` | Get transcript and save to file |
-
-#### API Usage Examples:
-
-**1. Get transcript with timestamps:**
-```bash
-curl -X POST "http://localhost:8080/transcript" \
--H "Content-Type: application/json" \
--d '{
-  "video_id": "pebgrFQ-C7M",
-  "with_timestamps": true,
-  "language": "en"
-}'
-```
-
-**2. Get transcript using video URL:**
-```bash
-curl -X POST "http://localhost:8080/transcript" \
--H "Content-Type: application/json" \
--d '{
-  "video_url": "https://www.youtube.com/watch?v=pebgrFQ-C7M",
-  "with_timestamps": false,
-  "language": "en"
-}'
-```
-
-**3. Save transcript to file:**
-```bash
-curl -X POST "http://localhost:8080/transcript/save" \
--H "Content-Type: application/json" \
--d '{
-  "video_id": "pebgrFQ-C7M",
-  "with_timestamps": true,
-  "language": "en"
-}'
-```
-
-#### Request Body Schema:
-
-```json
-{
-  "video_id": "string (optional)",
-  "video_url": "string (optional)",
-  "with_timestamps": "boolean (default: false)",
-  "language": "string (default: 'en')"
-}
-```
-
-**Note**: Either `video_id` or `video_url` must be provided.
-
-#### Response Schema:
-
-```json
-{
-  "success": "boolean",
-  "transcript": "string (if success)",
-  "error": "string (if error)",
-  "video_id": "string",
-  "language": "string",
-  "with_timestamps": "boolean"
-}
-```
-
-### n8n Integration
-
-For n8n HTTP Request node configuration:
-
-1. **Method**: POST
-2. **URL**: `http://localhost:8080/transcript`
-3. **Headers**: 
-   - `Content-Type`: `application/json`
-4. **Body** (JSON):
-   ```json
-   {
-     "video_url": "{{$json.video_url}}",
-     "with_timestamps": true,
-     "language": "en"
-   }
-   ```
-5. **Timeout**: 60000ms (60 seconds) - recommended for longer videos
-
-### Option 3: Gradio Web Interface
-
-For users who prefer a graphical interface, we provide a comprehensive web-based UI built with Gradio.
-
-#### Starting the Gradio Interface:
-
-1. **First, start the FastAPI server** (required for the interface to work):
-```bash
-uv run python src/mcp_youtube.py --mode fastapi --port 8080
-```
-
-2. **Then start the Gradio interface** (in a new terminal):
-```bash
-python3 gradio_interface.py
-```
-
-The Gradio interface will be available at: **http://localhost:7860**
-
-#### Gradio Interface Features:
-
-- 🎬 **Easy video input**: Enter YouTube URLs or video IDs
-- ⚙️ **Configuration options**: Timestamps, language selection, file saving
-- 📊 **Server status monitoring**: Real-time FastAPI server health checks
-- 📁 **File management**: List and view saved transcript files
-- 🎯 **Example videos**: Pre-loaded examples for quick testing
-- 🔄 **Auto-refresh**: Automatic file list updates when saving
-- 📋 **Copy-to-clipboard**: Easy transcript copying
-- 🆘 **Built-in help**: Troubleshooting guide and API documentation
-
-#### Interface Sections:
-
-1. **Input Panel**: Video ID/URL input with options
-2. **Server Status**: Real-time monitoring of FastAPI server
-3. **File Management**: Browse and list saved transcripts
-4. **Output Panel**: Display transcripts with copy functionality
-5. **Examples**: Quick-start examples
-6. **Documentation**: API endpoints and troubleshooting
-
-#### Usage Workflow:
-
-1. Start FastAPI server on port 8080
-2. Launch Gradio interface on port 7860
-3. Enter YouTube video ID or URL
-4. Configure options (timestamps, language, save to file)
-5. Click "Get Transcript" or check "Save to File"
-6. View results and manage saved files
-
-## Development
-
-1. Clone the repository
-
-2. Create and activate virtual environment using uv:
-```bash
-uv venv
-source .venv/bin/activate  # On Unix/MacOS
-# or .venv\Scripts\activate  # On Windows
-```
-
-3. Install dependencies:
-```bash
+# Create virtual environment and install dependencies
 uv sync
 ```
 
-4. Run the server:
-
-**MCP Mode:**
+### Using pip
 ```bash
-uv run python src/mcp_youtube.py
+# Clone the repository
+git clone https://github.com/Marvel202/yt-mcp-transcript.git
+cd yt-mcp-transcript
+
+# Create virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install dependencies
+pip install -e .
 ```
 
-**FastAPI Mode:**
+## Usage
+
+### 1. MCP Server Mode (for AI Assistants)
+
+Start the MCP server:
 ```bash
-uv run python src/mcp_youtube.py --mode fastapi --port 8080
+# With uv
+uv run python src/mcp_youtube.py --mode mcp
+
+# With pip
+python src/mcp_youtube.py --mode mcp
 ```
+
+#### Available MCP Tools:
+- `get_transcript` - Extract transcript from a YouTube video
+- `save_transcript_to_file` - Save transcript to a file with timestamp
+
+### 2. FastAPI HTTP Server Mode (for n8n and automation)
+
+Start the HTTP server on port 8080 with 60-second timeout:
+```bash
+# With uv
+uv run python src/mcp_youtube.py --mode fastapi
+
+# With pip
+python src/mcp_youtube.py --mode fastapi
+```
+
+#### Available HTTP Endpoints:
+
+**GET /transcript/{video_id}**
+- Extract transcript by video ID
+- Example: `GET http://localhost:8080/transcript/pebgrFQ-C7M`
+
+**POST /transcript**
+- Extract transcript from URL or video ID
+- Request body: `{"url": "https://youtube.com/watch?v=pebgrFQ-C7M"}` or `{"video_id": "pebgrFQ-C7M"}`
+
+**POST /transcript/save**
+- Extract and save transcript to file
+- Request body: `{"url": "https://youtube.com/watch?v=pebgrFQ-C7M", "filename": "my_transcript.txt"}`
+
+**GET /health**
+- Server health check
+
+#### Example with curl:
+```bash
+# Get transcript by video ID
+curl http://localhost:8080/transcript/pebgrFQ-C7M
+
+# Get transcript from URL
+curl -X POST http://localhost:8080/transcript \
+  -H "Content-Type: application/json" \
+  -d '{"url": "https://youtube.com/watch?v=pebgrFQ-C7M"}'
+
+# Save transcript to file
+curl -X POST http://localhost:8080/transcript/save \
+  -H "Content-Type: application/json" \
+  -d '{"url": "https://youtube.com/watch?v=pebgrFQ-C7M", "filename": "study_session.txt"}'
+```
+
+### 3. Gradio Web Interface (Browser-based)
+
+Start the web interface:
+```bash
+# First, start the FastAPI server in one terminal
+uv run python src/mcp_youtube.py --mode fastapi
+
+# Then start the Gradio interface in another terminal
+uv run python gradio_interface.py
+```
+
+Open your browser to `http://localhost:7860` to use the web interface.
+
+## Configuration
+
+### n8n HTTP Request Node Setup
+When using with n8n, configure the HTTP Request node:
+- **Method**: POST
+- **URL**: `http://localhost:8080/transcript`
+- **Body**: JSON with `{"url": "YOUR_YOUTUBE_URL"}`
+- **Timeout**: 60000ms (60 seconds)
+
+### Supported YouTube URL Formats
+- `https://www.youtube.com/watch?v=VIDEO_ID`
+- `https://youtu.be/VIDEO_ID`
+- `https://m.youtube.com/watch?v=VIDEO_ID`
+- Just the video ID: `VIDEO_ID`
 
 ## File Structure
 
 ```
 yt-mcp-transcript/
-├── transcript/                 # Generated transcript files
-│   ├── {video_id}_{lang}_with_timestamps.txt
-│   └── {video_id}_{lang}_no_timestamps.txt
 ├── src/
-│   └── mcp_youtube.py         # Main application (MCP + FastAPI server)
-├── gradio_interface.py        # Web interface using Gradio
-├── test_transcript_saving.py  # Test script for verification
-├── pyproject.toml             # Dependencies and project config
-├── uv.lock                    # Lock file for dependencies
-└── readme.md                  # This file
+│   ├── __init__.py
+│   └── mcp_youtube.py          # Main server application
+├── gradio_interface.py         # Web interface
+├── transcript/                 # Saved transcripts directory
+├── pyproject.toml             # Project configuration
+├── README.md                  # This file
+└── test_transcript_saving.py  # Test script
 ```
 
-## Dependencies
+## API Response Format
 
-- **mcp**: Model Context Protocol server framework
-- **pydantic**: Data validation
-- **youtube-transcript-api**: YouTube transcript extraction
-- **fastapi**: HTTP API framework
-- **uvicorn**: ASGI server
-- **gradio**: Web interface framework
-- **requests**: HTTP client for API calls
+All endpoints return JSON responses:
 
-## Quick Start
+**Success Response:**
+```json
+{
+  "success": true,
+  "video_id": "pebgrFQ-C7M",
+  "transcript": [
+    {"text": "Hello everyone", "start": 0.0, "duration": 2.5},
+    {"text": "Welcome to this video", "start": 2.5, "duration": 3.0}
+  ],
+  "total_duration": 1800.0,
+  "word_count": 2500
+}
+```
 
-1. **Install dependencies**:
-   ```bash
-   uv sync
-   ```
+**Error Response:**
+```json
+{
+  "success": false,
+  "error": "No transcript found for this video",
+  "video_id": "invalid_id"
+}
+```
 
-2. **Start FastAPI server** (required for Gradio interface):
-   ```bash
-   uv run python src/mcp_youtube.py --mode fastapi --port 8080
-   ```
+## Error Handling
 
-3. **Start Gradio interface** (in new terminal):
-   ```bash
-   python3 gradio_interface.py
-   ```
+The server handles various error conditions:
+- Invalid video IDs or URLs
+- Videos without available transcripts
+- Network connectivity issues
+- Server timeouts (60-second limit for FastAPI mode)
 
-4. **Access the web interface**: <http://localhost:7860>
+## Testing
 
-5. **Test with example video**: Use video ID `pebgrFQ-C7M` or any YouTube URL
+Test the transcript extraction:
+```bash
+# Test with the target video
+uv run python test_transcript_saving.py
+```
+
+## Development
+
+### Running in Development Mode
+```bash
+# MCP mode with auto-reload
+uv run python src/mcp_youtube.py --mode mcp
+
+# FastAPI mode with auto-reload
+uv run python src/mcp_youtube.py --mode fastapi --reload
+```
+
+### Dependencies
+- `fastmcp>=1.12.2` - MCP server framework
+- `youtube-transcript-api>=1.2.1` - YouTube transcript extraction
+- `fastapi>=0.116.1` - HTTP API framework
+- `uvicorn>=0.25.0` - ASGI server
+- `gradio>=5.38.2` - Web interface framework
+- `pydantic>=2.0.0` - Data validation
 
 ## License
 
-MIT
+MIT License - see LICENSE file for details.
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## Support
+
+For issues or questions:
+1. Check the GitHub Issues page
+2. Create a new issue with detailed information
+3. Include error messages and steps to reproduce
+
+---
+
+**Target Video for Testing**: `pebgrFQ-C7M` (2-Hour Study Session with Calm Jazz)
